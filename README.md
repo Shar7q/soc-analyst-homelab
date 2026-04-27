@@ -2,7 +2,6 @@ soc-analyst-homelab — [README.md](http://README.md)
 # SOC Analyst Home Lab — Microsoft Sentinel
 
 <aside>
-🛡️
   
   **A cloud-based SIEM home lab built on Microsoft Sentinel (Azure) to simulate SOC operations, detect threats, and automate incident response.**
 
@@ -10,7 +9,7 @@ soc-analyst-homelab — [README.md](http://README.md)
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 This home lab replicates a real-world Security Operations Center (SOC) environment using Microsoft Sentinel on Azure. It demonstrates practical skills in SIEM configuration, log ingestion, threat detection, KQL-based threat hunting, and automated response using SOAR playbooks.
 
