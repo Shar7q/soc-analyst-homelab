@@ -1,0 +1,6 @@
+SigninLogs
+| where ResultType != "0"
+| summarize FailedAttempts = count() by UserPrincipalName, IPAddress
+| where FailedAttempts > 3
+| order by FailedAttempts desc
+// MITRE ATT&CK: T1110 - Brute Force

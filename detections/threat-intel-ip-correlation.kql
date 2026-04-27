@@ -1,0 +1,8 @@
+let MaliciousIPs = ThreatIntelIndicators
+| where IsActive == true
+| where ObservableKey == "network-traffic:src_ref.value"
+| project ObservableValue;
+SigninLogs
+| where IPAddress in (MaliciousIPs)
+| project TimeGenerated, UserPrincipalName, IPAddress, Location, ResultDescription
+// MITRE ATT&CK: T1078 - Valid Accounts / T1566 - Phishing

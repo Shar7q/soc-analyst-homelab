@@ -1,0 +1,8 @@
+let MaliciousDomains = ThreatIntelIndicators
+| where IsActive == true
+| where ObservableKey == "domain-name:value"
+| project ObservableValue;
+AuditLogs
+| where InitiatedBy has_any (MaliciousDomains)
+| project TimeGenerated, OperationName, Result, InitiatedBy
+// MITRE ATT&CK: T1566 - Phishing / T1071 - C2

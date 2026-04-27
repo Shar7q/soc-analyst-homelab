@@ -1,0 +1,5 @@
+SigninLogs
+| where ResultType == "50053"
+| summarize LockoutCount = count() by UserPrincipalName, bin(TimeGenerated, 1h)
+| where LockoutCount > 2
+// MITRE ATT&CK: T1110.001 - Password Guessing

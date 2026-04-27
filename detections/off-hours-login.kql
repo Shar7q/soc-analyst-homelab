@@ -1,0 +1,6 @@
+SigninLogs
+| where ResultType == "0"
+| extend Hour = datetime_part("Hour", TimeGenerated)
+| where Hour < 6 or Hour > 22
+| project TimeGenerated, UserPrincipalName, IPAddress, Location
+// MITRE ATT&CK: T1078 - Valid Accounts (Off-Hours)

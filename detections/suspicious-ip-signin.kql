@@ -1,0 +1,5 @@
+SigninLogs
+| where RiskLevelDuringSignIn in ("medium", "high")
+| project TimeGenerated, UserPrincipalName, IPAddress, Location, RiskLevelDuringSignIn
+| order by TimeGenerated desc
+// MITRE ATT&CK: T1078 - Valid Accounts

@@ -1,0 +1,6 @@
+AzureActivity
+| where ActivityStatusValue == "Success"
+| summarize count() by OperationNameValue, Caller
+| where count_ < 3
+| order by count_ asc
+// MITRE ATT&CK: T1098 - Account Manipulation

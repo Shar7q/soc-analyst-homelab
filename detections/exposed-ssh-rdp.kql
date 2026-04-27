@@ -1,0 +1,8 @@
+AzureActivity
+| where OperationNameValue has_any ("Microsoft.Network/networkSecurityGroups/securityRules/write",
+                                    "Microsoft.Network/networkSecurityGroups/write")
+| where ActivityStatusValue == "Success"
+| where Properties has_any ("22", "3389", "SSH", "RDP")
+| project TimeGenerated, Caller, ResourceGroup, SubscriptionId, Properties
+| order by TimeGenerated desc
+// MITRE ATT&CK: T1190 - Exploit Public-Facing Application
